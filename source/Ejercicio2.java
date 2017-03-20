@@ -3,18 +3,18 @@
  */
 public class Ejercicio2 {
 
-    public int factorial(int number){
+    public static int factorial(int number){
         if (number == 1)
             return 1;
         else
             return number * factorial(number - 1);
     }
 
-    public double exponetialToN(int n){
+    public static double exponetialToN(int n){
         return Math.pow(2, n);
     }
 
-    public double nTermFibonacci(int n){
+    public static double nTermFibonacci(int n){
         if(n == 0){
             return 0;
         } else if (n == 1){
@@ -24,7 +24,7 @@ public class Ejercicio2 {
         }
     }
 
-    public double mcdEuclides (int a, int b){
+    public static double mcdEuclides (int a, int b){
         if(b==0)
             return a;
         else
