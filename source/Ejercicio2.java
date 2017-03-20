@@ -30,4 +30,5 @@ public class Ejercicio2 {
         else
             return mcdEuclides(b, a % b);
     }
+
 }
