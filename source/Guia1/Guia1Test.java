@@ -10,23 +10,26 @@ public class Guia1Test {
         int number = 15;
         Random rn = new Random();
 
-//        System.out.println(Guia1.Ejercicio1.sumatoriaA(6)); // 21
-//        System.out.println(Guia1.Ejercicio1.sumatoriaB(6));
-//        System.out.println(Guia1.Ejercicio1.sumatoriaC(6,2));
-//        System.out.println(Guia1.Ejercicio1.sumatoriaD(6));
-//        System.out.println(Guia1.Ejercicio1.sumatoriaE(6));
-//        System.out.println(Guia1.Ejercicio1.sumatoriaF(6));
-//
-//
-//        System.out.println("Factorial de 3: "+Guia1.Ejercicio2.factorial(3));//6
-//        System.out.println("Fibonnacci de 4: "+Guia1.Ejercicio2.nTermFibonacci(4));
-//        System.out.println("Exponencial de 2 a la 4: "+ Guia1.Ejercicio2.exponetialToN(4));
-//        System.out.println("El " + number + " es numero primo? "+ Guia1.Ejercicio6.numeroPrimo(number));
-//        System.out.println(Guia1.Ejercicio6.numeroPrimoN(number));
-//        System.out.println(Guia1.Ejercicio6.cantidadFactoresPrimos(number));
-//        System.out.println(Guia1.Ejercicio6.factoresPrimos(number));
+        System.out.println(Guia1.Ejercicio1.sumatoriaA(6)); // 21
+        System.out.println(Guia1.Ejercicio1.sumatoriaB(6));
+        System.out.println(Guia1.Ejercicio1.sumatoriaC(6,2));
+        System.out.println(Guia1.Ejercicio1.sumatoriaD(6));
+        System.out.println(Guia1.Ejercicio1.sumatoriaE(6));
+        System.out.println(Guia1.Ejercicio1.sumatoriaF(6));
 
-//        System.out.println(Guia1.Ejercicio7.factoreo(48));
+
+        System.out.println("Factorial de 3: "+Guia1.Ejercicio2.factorial(3));//6
+        System.out.println("Fibonnacci de 4: "+Guia1.Ejercicio2.nTermFibonacci(4));
+        System.out.println("Exponencial de 2 a la 4: "+ Guia1.Ejercicio2.exponetialToN(4));
+        System.out.println("El " + number + " es numero primo? "+ Guia1.Ejercicio6.numeroPrimo(number));
+        System.out.println(Guia1.Ejercicio6.numeroPrimoN(number));
+        System.out.println(Guia1.Ejercicio6.cantidadFactoresPrimos(number));
+        System.out.println(Guia1.Ejercicio6.factoresPrimos(number));
+
+        System.out.println(Guia1.Ejercicio7.factoreo(48));
+        System.out.println("MCD de 123 y 277: "+Guia1.Ejercicio7.MCD(123,277));
+        System.out.println("MCD de 111 y 201: "+Guia1.Ejercicio7.MCD(111,201));
+        System.out.println("MCD de 14039 y 1529: "+Guia1.Ejercicio7.MCD(14039,1529));
 
         int[] polinomio = new int[5];
         for (int i = 0; i < polinomio.length; i++) {
@@ -34,9 +37,7 @@ public class Guia1Test {
             System.out.println(polinomio[i]);
         }
 
-        System.out.println(Ejercicio8.hornerRecursive(polinomio, 2, 0));
-
-//        System.out.println(Guia1.Ejercicio7.MCD(48, 60));
+//        System.out.println(Ejercicio8.hornerRecursive(polinomio, 2, 0));
 
     }
 }
