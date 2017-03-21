@@ -3,6 +3,10 @@
  */
 public class Ejercicio8 {
 
+    /**
+     * Metodo que evalua un polinomio dado en el valor x dado, mediante el metodo de Horner de forma iterativa
+     */
+
     public static int hornerIterative(int[] polinomio, int x){
         int maxCoef = polinomio.length-1; // calculo el coeficiente maximo
 
@@ -16,8 +20,20 @@ public class Ejercicio8 {
 
     }
 
-//    public static int hornerRecursive(int [] polinomio, int x){
-//
-//    }
+    /**
+     * Metodo que evalua un polinomio dado en el valor x dado, mediante el metodo de Horner de forma recursiva
+     */
+
+    public static int hornerRecursive(int [] polinomio, int x, int position){
+        int index = position;
+        int maxCoef = polinomio.length-1;
+        int result = polinomio[index];
+        if(index == maxCoef) {
+            return
+        }else{
+            index ++;
+        }
+        return result * x + polinomio[index] + hornerRecursive(polinomio, x, index);
+    }
 
 }

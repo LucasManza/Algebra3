@@ -26,15 +26,15 @@ public class Guia1Test {
 
 //        System.out.println(Ejercicio7.factoreo(48));
 
-//        int[] polinomio = new int[5];
-//        for (int i = 0; i < polinomio.length; i++) {
-//            polinomio[i] = rn.nextInt(10);
-//            System.out.println(polinomio[i]);
-//        }
-//
-//        System.out.println(Ejercicio8.hornerIterative(polinomio, 2));
+        int[] polinomio = new int[5];
+        for (int i = 0; i < polinomio.length; i++) {
+            polinomio[i] = rn.nextInt(10);
+            System.out.println(polinomio[i]);
+        }
 
-        System.out.println(Ejercicio7.MCD(48, 60));
+        System.out.println(Ejercicio8.hornerRecursive(polinomio, 2, 0));
+
+//        System.out.println(Ejercicio7.MCD(48, 60));
 
     }
 }

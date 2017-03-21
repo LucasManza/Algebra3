@@ -6,6 +6,10 @@ import java.util.List;
  */
 public class Ejercicio6 {
 
+    /**
+     * Metodo que evalua si un numero dado es primo
+     */
+
     public static boolean numeroPrimo(int n){
         if(n<0) return false;
 
@@ -25,6 +29,10 @@ public class Ejercicio6 {
 
     }
 
+    /**
+     * Metodo que retorna el primer numero primo mayor o igual a un numero dado
+     */
+
     public static int numeroPrimoN(int n){
         for (int i = n; ; i++) {
             if (numeroPrimo(i)) {
@@ -32,6 +40,10 @@ public class Ejercicio6 {
             }
         }
     }
+
+    /**
+     * Metodo que calcula la cantidad de factores primos que tiene un numero
+     */
 
     public static int cantidadFactoresPrimos(int n){
         int count= 0;
@@ -43,6 +55,10 @@ public class Ejercicio6 {
         }
         return count;
     }
+
+    /**
+     * Metodo que calcula cuales son esos numeros primos y lo devuelve en forma de ArrayList
+     */
 
     public static ArrayList factoresPrimos(int n){
         ArrayList factoresPrimos = new ArrayList();
