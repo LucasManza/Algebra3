@@ -1,9 +1,12 @@
+import java.util.Random;
+
 /**
  * Created by Lucas on 20/3/2017.
  */
 public class Guia1Test {
     public static void main(String[] args){
         int number = 15;
+        Random rn = new Random();
 
 //        System.out.println(Ejercicio1.sumatoriaA(6)); // 21
 //        System.out.println(Ejercicio1.sumatoriaB(6));
@@ -21,6 +24,17 @@ public class Guia1Test {
 //        System.out.println(Ejercicio6.cantidadFactoresPrimos(number));
 //        System.out.println(Ejercicio6.factoresPrimos(number));
 
-        System.out.println(Ejercicio7.factoreo(48));
+//        System.out.println(Ejercicio7.factoreo(48));
+
+//        int[] polinomio = new int[5];
+//        for (int i = 0; i < polinomio.length; i++) {
+//            polinomio[i] = rn.nextInt(10);
+//            System.out.println(polinomio[i]);
+//        }
+//
+//        System.out.println(Ejercicio8.hornerIterative(polinomio, 2));
+
+        System.out.println(Ejercicio7.MCD(48, 60));
+
     }
 }
