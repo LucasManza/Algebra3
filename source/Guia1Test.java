@@ -21,6 +21,6 @@ public class Guia1Test {
 //        System.out.println(Ejercicio6.cantidadFactoresPrimos(number));
 //        System.out.println(Ejercicio6.factoresPrimos(number));
 
-
+        System.out.println(Ejercicio7.factoreo(48));
     }
 }
