@@ -3,6 +3,10 @@
  */
 public class Ejercicio3 {
 
+    /**
+     * Determina cuantos 0 tiene un numero dado
+     */
+
     public static int determinarCero(int numero){
         int result =0;
         String numeroString = String.valueOf(numero);
