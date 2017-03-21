@@ -3,11 +3,21 @@
  */
 public class Ejercicio6 {
     public static boolean numeroPrimo(int n){
-        boolean result = true;
+        if(n<0) return false;
+
+        int count = 0; //keeps the count of numbers of n%i == 0
+
         for(int i=1; i<=n;i++){
-            if((i<=Math.sqrt(n)))
-                result= false;
+            if(n%i == 0){
+                count++;
+            }
         }
-        return result;
+
+        // if count == 2 it means that n can be divided by 1 and n;
+        if(count == 2){
+            return true;
+        }
+        return false;
+
     }
 }
