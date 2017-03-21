@@ -3,7 +3,7 @@
  */
 public class Guia1Test {
     public static void main(String[] args){
-        int number = 11;
+        int number = 15;
 
 //        System.out.println(Ejercicio1.sumatoriaA(6)); // 21
 //        System.out.println(Ejercicio1.sumatoriaB(6));
@@ -17,6 +17,9 @@ public class Guia1Test {
 //        System.out.println("Fibonnacci de 4: "+Ejercicio2.nTermFibonacci(4));
 //        System.out.println("Exponencial de 2 a la 4: "+ Ejercicio2.exponetialToN(4));
 //        System.out.println("El " + number + " es numero primo? "+ Ejercicio6.numeroPrimo(number));
+//        System.out.println(Ejercicio6.numeroPrimoN(number));
+//        System.out.println(Ejercicio6.cantidadFactoresPrimos(number));
+//        System.out.println(Ejercicio6.factoresPrimos(number));
 
 
     }
