@@ -1,10 +1,12 @@
+package Guia1;
+
 /**
  * Created by Lucas on 19/3/2017.
  */
 public class Ejercicio5 {
 
     /**
-     * Se fija si el numero dado pertenece a un conjunto
+     * Metodo que evalua si el numero dado pertenece a un conjunto dado
      */
 
     public static boolean perteneceAlConjunto(int[] array, int a){
