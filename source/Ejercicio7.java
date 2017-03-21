@@ -5,29 +5,39 @@ import java.util.ArrayList;
  */
 public class Ejercicio7 {
 
-    public static int MCD(int a, int b) {
-        ArrayList factoresPrimosA = factoreo(a);
-        ArrayList factoresPrimosB = factoreo(b);
+    /**
+     *Metodo que realiza el algoritmo de Maximo Comun Divisor.
+     * Usa metodos auxiliares como el factoreo y contadorMenorComun.
+     */
 
-        int result=1;
+    public static int MCD(int a, int b) {
+        ArrayList<Integer> factoresPrimosA = factoreo(a);
+        ArrayList<Integer> factoresPrimosB = factoreo(b);
+
+        int result=1; //no debe
+        int auxPrimo = 1; // inicializado en 1 porque sabermos que 1 no es primo. Permite comparar numeros primos que se repitan.
 
         if(factoresPrimosA.size()>=factoresPrimosB.size()) {
             for (int i = 0; i <factoresPrimosA.size();i++){
-                if(factoresPrimosB.contains(factoresPrimosA.get(i)) && (int)factoresPrimosA.get(i+1) >= (int)factoresPrimosA.get(i))
-                result = result * contadorMenorComun(factoresPrimosA,factoresPrimosB, (int)factoresPrimosA.get(i));
+                if(factoresPrimosB.contains(factoresPrimosA.get(i)) && (factoresPrimosA.get(i)!= auxPrimo)) {
+                    result = result * contadorMenorComun(factoresPrimosA, factoresPrimosB, factoresPrimosA.get(i));
+                }
             }
         }
         else {
             for (int i = 0; i < factoresPrimosB.size(); i++) {
-                if (factoresPrimosA.contains(factoresPrimosB.get(i)) && (int)factoresPrimosB.get(i+1) >= (int)factoresPrimosB.get(i))
-                    result = result * contadorMenorComun(factoresPrimosA, factoresPrimosB, (int)factoresPrimosB.get(i));
+                if (factoresPrimosA.contains(factoresPrimosB.get(i)) && (factoresPrimosA.get(i)!= auxPrimo))
+                    result = result * contadorMenorComun(factoresPrimosA, factoresPrimosB, factoresPrimosB.get(i));
             }
         }
         return result;
     }
 
-    public static ArrayList factoreo(int a){
-        ArrayList result = new ArrayList();
+    /**
+     * Factoreo de un numero por los numeros primos mas chicos posibles.
+     */
+    public static ArrayList<Integer> factoreo(int a){
+        ArrayList<Integer> result = new ArrayList<Integer>();
 
         int i = 2;
         int j = a;
@@ -43,9 +53,14 @@ public class Ejercicio7 {
         return result;
     }
 
-    public static int contadorMenorComun(ArrayList a, ArrayList b, int z){
-        ArrayList contadorA = new ArrayList();
-        ArrayList contadorB = new ArrayList();
+    /**
+     * Compara los arrays de tal forma de que selecciona el numero primo compartido
+     * sepanrandolo y viendo cual tiene menor cantidad de ese numero z en particular.
+     */
+
+    public static int contadorMenorComun(ArrayList<Integer> a, ArrayList<Integer> b, int z){
+        ArrayList<Integer> contadorA = new ArrayList<Integer>();
+        ArrayList<Integer> contadorB = new ArrayList<Integer>();
         int result =0;
 
         for(int i=0; i<a.size();i++){
