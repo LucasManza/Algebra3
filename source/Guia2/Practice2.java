@@ -1,3 +1,5 @@
+package Guia2;
+
 public interface Practice2{
 	
 	long exercise8(int m, int n);
