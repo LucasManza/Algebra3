@@ -24,7 +24,7 @@ public class Practice2Exercises implements Practice2 {
      */
     public long exercise10(int n) {
         long result=0;
-        for(int i=0;i<=n;i++){
+        for(int i=1;i<=n;i++){
             result+= i*(Math.pow(2,i));
         }
         return result;
