@@ -5,7 +5,7 @@ package Guia2;
  */
 public class Practice2Exercises implements Practice2 {
 
-    public long exercise8(int m, int n) {
+    public  long exercise8(int m, int n) {
         int count=m;
         long result=0;
        while (m<=n){
@@ -19,6 +19,9 @@ public class Practice2Exercises implements Practice2 {
         return exercise8(m,n)*exercise8(r,s);
     }
 
+    /**
+     * Sumatoria que resuelve, n*2^(n). Donde va de 1 a n de los naturales.
+     */
     public long exercise10(int n) {
         long result=0;
         for(int i=0;i<=n;i++){
