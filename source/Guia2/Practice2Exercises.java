@@ -5,7 +5,7 @@ package Guia2;
  */
 public class Practice2Exercises implements Practice2 {
 
-    public  long exercise8(int m, int n) {
+    public long exercise8(int m, int n) {
         int count=m;
         long result=0;
        while (m<=n){
@@ -31,10 +31,15 @@ public class Practice2Exercises implements Practice2 {
     }
 
     public double exercise11Sumation(int n, int x) {
-        return 0;
+        long result = 0;
+        for (int i = 0; i < n; i++) {
+            result += i * Math.pow(x, i);
+        }
+
+        return result;
     }
 
     public double exercise11Formula(int n, int x) {
-        return 0;
+        return ((n * Math.pow(x, n+2)) - ((n+1)*Math.pow(x, n+1)) + x)/(Math.pow(x-1, 2));
     }
 }
