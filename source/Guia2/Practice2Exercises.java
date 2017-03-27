@@ -4,6 +4,9 @@ package Guia2;
  * Created by Lucas on 24/3/2017.
  */
 public class Practice2Exercises implements Practice2 {
+    /**
+     *Sumatoria desde un numero n hasta otro n.
+     */
 
     public long exercise8(int m, int n) {
         int count=m;
@@ -14,6 +17,9 @@ public class Practice2Exercises implements Practice2 {
        }
         return result;
     }
+    /**
+     * Sumatoria doble que repite procedimiento del ejercicio anterior.
+     */
 
     public long exercise9(int m, int n, int r, int s) {
         return exercise8(m,n)*exercise8(r,s);
