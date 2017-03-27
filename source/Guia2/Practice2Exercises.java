@@ -11,7 +11,7 @@ public class Practice2Exercises implements Practice2 {
     public long exercise8(int m, int n) {
         int count=m;
         long result=0;
-       while (m<=n){
+       while (count<=n){
            result+=count;
            count++;
        }
@@ -36,16 +36,30 @@ public class Practice2Exercises implements Practice2 {
         return result;
     }
 
+    /**
+     * Sumatoria que resuelve i * x^i, con 0<= i <= n.
+     */
+
     public double exercise11Sumation(int n, int x) {
-        long result = 0;
-        for (int i = 0; i < n; i++) {
+        if(n < 0){
+            return -1;
+        }
+        double result = 0;
+        for (int i = 0; i <= n; i++) {
             result += i * Math.pow(x, i);
         }
 
         return result;
     }
 
+    /**
+     * Formula que resuelve la sumatoria del ejercicio 11, comprueba que la sumatoria sea correcta
+     */
+
     public double exercise11Formula(int n, int x) {
+        if(n < 0){
+            return -1;
+        }
         return ((n * Math.pow(x, n+2)) - ((n+1)*Math.pow(x, n+1)) + x)/(Math.pow(x-1, 2));
     }
 }
