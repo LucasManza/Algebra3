@@ -14,7 +14,18 @@ public class Ejercicio1 {
         }
         return result;
     }
-
+    
+    public static int sumatoriaARecursivo(int n){
+       return sumatoriaARecursivo(0,n);
+    }
+    
+    private static int sumatoriaARecursivo(int i ,int n){
+        int result = i;
+        if(i<n) {
+             result = sumatoriaARecursivo(result+1,n);
+        }
+        return result;
+    }
     /**
      * Ejercicio b: sumatoria de los numeros naturales al cuadrado hasta n.
      */
@@ -22,6 +33,19 @@ public class Ejercicio1 {
         int result=0;
         for(int i=1;i<=n;i++){
             result += Math.pow(i,2);
+        }
+        return result;
+    }
+    
+    public static int sumatoriaBRecursivo(int n){
+        return sumatoriaBRecursivo(0,n);
+    }
+
+    private static int sumatoriaBRecursivo(int i, int n) {
+        int result = 0;
+        if(i<=n) {
+            result += Math.pow(i,2);
+            result += sumatoriaBRecursivo(i+1,n);
         }
         return result;
     }
@@ -37,6 +61,19 @@ public class Ejercicio1 {
         return result;
     }
 
+    public static int sumatoriaCRecursivo(int p, int n){
+        return sumatoriaCRecursivo(0,p,n);
+    }
+
+    private static int sumatoriaCRecursivo(int i, int p, int n) {
+        int result = 0;
+        if(i<=n) {
+            result += Math.pow(p,i);
+            result += sumatoriaCRecursivo(i+1,p,n);
+        }
+        return result;
+    }
+
     /**
      * Ejercicio d: sumatoria de los numeros naturales impares  hasta n.
      */
@@ -45,6 +82,20 @@ public class Ejercicio1 {
         int p= (2*n-1);
         for(int i=1; i<=p; i++){
             result+= (2*i)-1;
+        }
+        return result;
+    }
+
+    public static int sumatoriaDRecursivo(int n) {
+        return sumatoriaDRecursivo(1,n);
+    }
+
+    private static int sumatoriaDRecursivo(int i,int n){
+        int result=0;
+        int p= (2*n-1);
+        if(i<=p){
+            result+= (2*i)-1;
+            result+= sumatoriaDRecursivo(i+1,n);
         }
         return result;
     }
@@ -59,14 +110,41 @@ public class Ejercicio1 {
         }
         return result;
     }
+
+    public static int sumatoriaERecursivo(int n){
+        return sumatoriaERecursivo(1,n);
+    }
+
+    private static int sumatoriaERecursivo(int i,int n){
+        int result=0;
+        int p= n*(n+1);
+        if (i<=p) {
+            result += i * (i + 1);
+            result += sumatoriaERecursivo(i+1,n);
+        }
+        return result;
+    }
     /**
-     * Ejercicio b: sumatoria de los numeros naturales al cubo hasta n.
+     * Ejercicio f: sumatoria de los numeros naturales al cubo hasta n.
      */
 
     public static int sumatoriaF(int n){
         int result=0;
         for(int i=1;i<=n;i++){
             result += Math.pow(i,3);
+        }
+        return result;
+    }
+
+    public static int sumatoriaFRecursivo(int n) {
+        return sumatoriaFRecursivo(1,n);
+    }
+
+    private static int sumatoriaFRecursivo(int i, int n){
+        int result = 0;
+        if(i<=n) {
+            result += Math.pow(i,3);
+            result += sumatoriaFRecursivo(i+1,n);
         }
         return result;
     }
