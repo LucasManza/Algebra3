@@ -26,6 +26,9 @@ public class Guia1Test {
 
         System.out.println("Ejercicio3: "+ Guia1.Ejercicio3.determinarCero(93020));
         System.out.println("Ejercicio3: "+ Guia1.Ejercicio3.determinarCeroRecusirvo(93020));
+
+        System.out.println("Ejercicio4: "+ Guia1.Ejercicio4.capicua(new int[]{1, 2, 1}));
+        System.out.println("Ejercicio4: "+ Guia1.Ejercicio4.capicuaRecursion(new int[]{1, 2, 1}));
 //
 //
 //        System.out.println("Factorial de 3: "+Guia1.Ejercicio2.factorial(3));//6

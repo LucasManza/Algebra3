@@ -17,4 +17,18 @@ public class Ejercicio4 {
         }
         return true;
     }
+
+    public static boolean capicuaRecursion(int[] a){
+        return capicuaRecursion(0,a);
+    }
+
+    private static boolean capicuaRecursion(int i, int[] a) {
+        if(i<a.length){
+            if(a[i]!=a[a.length-1-i]){
+                return false;
+            }
+            capicuaRecursion(i+1,a);
+        }
+        return true;
+    }
 }
