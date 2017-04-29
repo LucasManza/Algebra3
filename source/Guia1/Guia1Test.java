@@ -22,6 +22,10 @@ public class Guia1Test {
         System.out.println("Ejercicio1 SumatoriaERecusirvo:"+Guia1.Ejercicio1.sumatoriaERecursivo(6));
         System.out.println("Ejercicio1 SumatoriaF:"+Guia1.Ejercicio1.sumatoriaF(6));
         System.out.println("Ejercicio1 SumatoriaFRecusirvo:"+Guia1.Ejercicio1.sumatoriaFRecursivo(6));
+
+
+        System.out.println("Ejercicio3: "+ Guia1.Ejercicio3.determinarCero(93020));
+        System.out.println("Ejercicio3: "+ Guia1.Ejercicio3.determinarCeroRecusirvo(93020));
 //
 //
 //        System.out.println("Factorial de 3: "+Guia1.Ejercicio2.factorial(3));//6

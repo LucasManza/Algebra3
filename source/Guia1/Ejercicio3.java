@@ -21,4 +21,19 @@ public class Ejercicio3 {
         return result;
     }
 
+    public static int determinarCeroRecusirvo(int numero){
+        return determinarCeroRecusirvo(0, String.valueOf(numero));
+    }
+
+    private static int determinarCeroRecusirvo(int i, String numero) {
+        int result = 0;
+        if(i<numero.length()){
+            if(numero.charAt(i) == '0'){
+                result++;
+            }
+            result += determinarCeroRecusirvo(i+1,numero);
+        }
+        return result;
+    }
+
 }
