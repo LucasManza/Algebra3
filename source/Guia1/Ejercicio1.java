@@ -4,6 +4,7 @@ package Guia1;
  * Created by Lucas on 19/3/2017.
  */
 public class Ejercicio1 {
+
     /**
      * Ejercicio a: sumatoria de los numeros naturales hasta n.
      */
