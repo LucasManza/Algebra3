@@ -10,31 +10,32 @@ public class Guia1Test {
         int number = 15;
         Random rn = new Random();
 
-        System.out.println("Ejercicio1 SumatoriaA:"+Guia1.Ejercicio1.sumatoriaA(6)); // 21
-        System.out.println("Ejercicio1 SumatoriaARecursivo:"+Guia1.Ejercicio1.sumatoriaARecursivo(6));
-        System.out.println("Ejercicio1 SumatoriaB:"+Guia1.Ejercicio1.sumatoriaB(6));
-        System.out.println("Ejercicio1 SumatoriaBRecusirvo:"+Guia1.Ejercicio1.sumatoriaBRecursivo(6));
-        System.out.println("Ejercicio1 SumatoriaC:"+Guia1.Ejercicio1.sumatoriaC(6,2));
-        System.out.println("Ejercicio1 SumatoriaCRecusirvo:"+Guia1.Ejercicio1.sumatoriaCRecursivo(6,2));
-        System.out.println("Ejercicio1 SumatoriaD:"+Guia1.Ejercicio1.sumatoriaD(6));
-        System.out.println("Ejercicio1 SumatoriaDRecusirvo:"+Guia1.Ejercicio1.sumatoriaDRecursivo(6));
-        System.out.println("Ejercicio1 SumatoriaE:"+Guia1.Ejercicio1.sumatoriaE(6));
-        System.out.println("Ejercicio1 SumatoriaERecusirvo:"+Guia1.Ejercicio1.sumatoriaERecursivo(6));
-        System.out.println("Ejercicio1 SumatoriaF:"+Guia1.Ejercicio1.sumatoriaF(6));
-        System.out.println("Ejercicio1 SumatoriaFRecusirvo:"+Guia1.Ejercicio1.sumatoriaFRecursivo(6));
+        System.out.println("Ejercicio1 SumatoriaA: "+Guia1.Ejercicio1.sumatoriaA(6)); // 21
+        System.out.println("Ejercicio1 SumatoriaARecursivo: "+Guia1.Ejercicio1.sumatoriaARecursivo(6));
+        System.out.println("Ejercicio1 SumatoriaB: "+Guia1.Ejercicio1.sumatoriaB(6));
+        System.out.println("Ejercicio1 SumatoriaBRecusirvo: "+Guia1.Ejercicio1.sumatoriaBRecursivo(6));
+        System.out.println("Ejercicio1 SumatoriaC: "+Guia1.Ejercicio1.sumatoriaC(6,2));
+        System.out.println("Ejercicio1 SumatoriaCRecusirvo: "+Guia1.Ejercicio1.sumatoriaCRecursivo(6,2));
+        System.out.println("Ejercicio1 SumatoriaD: "+Guia1.Ejercicio1.sumatoriaD(6));
+        System.out.println("Ejercicio1 SumatoriaDRecusirvo: "+Guia1.Ejercicio1.sumatoriaDRecursivo(6));
+        System.out.println("Ejercicio1 SumatoriaE: "+Guia1.Ejercicio1.sumatoriaE(6));
+        System.out.println("Ejercicio1 SumatoriaERecusirvo: "+Guia1.Ejercicio1.sumatoriaERecursivo(6));
+        System.out.println("Ejercicio1 SumatoriaF: "+Guia1.Ejercicio1.sumatoriaF(6));
+        System.out.println("Ejercicio1 SumatoriaFRecusirvo: "+Guia1.Ejercicio1.sumatoriaFRecursivo(6));
 
+        System.out.println("Ejercicio2 Factorial de 2: "+Guia1.Ejercicio2.factorial(3));//6
+        System.out.println("Ejercicio2 FactorialRecursivo de 2: "+Guia1.Ejercicio2.factorialRecursivo(3));//6
+        System.out.println("Ejericio 2 Fibonnacci de 4: "+Guia1.Ejercicio2.nTermFibonacci(4));
+        System.out.println("Ejericio 2 Fibonnacci de 4: "+Guia1.Ejercicio2.nTermFibonacciRecursivo(4));
+        System.out.println("Exponencial de 2 a la 4: "+ Guia1.Ejercicio2.exponetialToN(4));
+        System.out.println("El " + number + " es numero primo? "+ Guia1.Ejercicio6.numeroPrimo(number));
 
         System.out.println("Ejercicio3: "+ Guia1.Ejercicio3.determinarCero(93020));
         System.out.println("Ejercicio3: "+ Guia1.Ejercicio3.determinarCeroRecusirvo(93020));
 
         System.out.println("Ejercicio4: "+ Guia1.Ejercicio4.capicua(new int[]{1, 2, 1}));
         System.out.println("Ejercicio4: "+ Guia1.Ejercicio4.capicuaRecursion(new int[]{1, 2, 1}));
-//
-//
-//        System.out.println("Factorial de 3: "+Guia1.Ejercicio2.factorial(3));//6
-//        System.out.println("Fibonnacci de 4: "+Guia1.Ejercicio2.nTermFibonacci(4));
-//        System.out.println("Exponencial de 2 a la 4: "+ Guia1.Ejercicio2.exponetialToN(4));
-//        System.out.println("El " + number + " es numero primo? "+ Guia1.Ejercicio6.numeroPrimo(number));
+
 //        System.out.println(Guia1.Ejercicio6.numeroPrimoN(number));
 //        System.out.println(Guia1.Ejercicio6.cantidadFactoresPrimos(number));
 //        System.out.println(Guia1.Ejercicio6.factoresPrimos(number));
