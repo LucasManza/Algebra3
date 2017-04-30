@@ -43,6 +43,12 @@ public class Ejercicio6 {
         }
     }
 
+    public static int numeroPrimoNRecursive(int n){
+        if(!numeroPrimo(n))
+            numeroPrimoNRecursive(n+1);
+        return n;
+    }
+
     /**
      * Metodo que calcula la cantidad de factores primos que tiene un numero
      */
@@ -50,8 +56,8 @@ public class Ejercicio6 {
     public static int cantidadFactoresPrimos(int n){
         int count= 0;
 
-        for (int i = 1; i < n; i++) {
-            if(numeroPrimo(i)){
+        for (int i = 0; i <= n; i++) {
+            if (n % i == 0) {
                 count++;
             }
         }
@@ -65,8 +71,8 @@ public class Ejercicio6 {
     public static ArrayList factoresPrimos(int n){
         ArrayList factoresPrimos = new ArrayList();
 
-        for (int i = 1; i < n; i++) {
-            if(numeroPrimo(i)){
+        for (int i = 0; i <= n; i++) {
+            if (n % i == 0) {
                 factoresPrimos.add(i);
             }
         }

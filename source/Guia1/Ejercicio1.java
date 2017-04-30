@@ -14,7 +14,7 @@ public class Ejercicio1 {
         }
         return result;
     }
-    
+
     public static int sumatoriaARecursivo(int n){
        return sumatoriaARecursivo(0,n);
     }
@@ -36,7 +36,7 @@ public class Ejercicio1 {
         }
         return result;
     }
-    
+
     public static int sumatoriaBRecursivo(int n){
         return sumatoriaBRecursivo(0,n);
     }

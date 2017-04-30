@@ -25,17 +25,12 @@ public class Ejercicio8 {
     /**
      * Metodo que evalua un polinomio dado en el valor x dado, mediante el metodo de Horner de forma recursiva
      */
-/*
+
     public static int hornerRecursive(int [] polinomio, int x, int position){
-        int index = position;
-        int maxCoef = polinomio.length-1;
-        int result = polinomio[index];
-        if(index == maxCoef) {
-            return
-        }else{
-            index ++;
+        if (position == polinomio.length) {
+            return 0;
         }
-        return result * x + polinomio[index] + hornerRecursive(polinomio, x, index);
+        return (hornerRecursive(polinomio, x, position+1) + polinomio[position])/x;
     }
-*/
+
 }
