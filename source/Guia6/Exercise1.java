@@ -8,7 +8,7 @@ public interface Exercise1{
 
 	public double[] exerciseC(double[][] matrix, Calculator calculator);
 
-	public double exerciseD(double[][] matrix, double[] vector, Calculator calculator);
+	public double[] exerciseD(double[][] matrix, double[] vector, Calculator calculator);
 
 	public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator);
 
