@@ -35,6 +35,29 @@ public class Ejercicio7 {
         return result;
     }
 
+//    public static int MCDRecursivo(int a, int b) {
+//        ArrayList<Integer> factoresPrimosA = factoreoRecursivo(a);
+//        ArrayList<Integer> factoresPrimosB = factoreoRecursivo(b);
+//
+//        int result=1; //no debe
+//        int auxPrimo = 1; // inicializado en 1 porque sabermos que 1 no es primo. Permite comparar numeros primos que se repitan.
+//
+//        if(factoresPrimosA.size()>=factoresPrimosB.size()) {
+//            for (int i = 0; i <factoresPrimosA.size();i++){
+//                if(factoresPrimosB.contains(factoresPrimosA.get(i)) && (factoresPrimosA.get(i)!= auxPrimo)) {
+//                    result = result * contadorMenorComunRecursivo(factoresPrimosA, factoresPrimosB, factoresPrimosA.get(i));
+//                }
+//            }
+//        }
+//        else {
+//            for (int i = 0; i < factoresPrimosB.size(); i++) {
+//                if (factoresPrimosA.contains(factoresPrimosB.get(i)) && (factoresPrimosA.get(i)!= auxPrimo))
+//                    result = result * contadorMenorComunRecursivo(factoresPrimosA, factoresPrimosB, factoresPrimosB.get(i));
+//            }
+//        }
+//        return result;
+//    }
+
     /**
      * Factoreo de un numero por los numeros primos mas chicos posibles.
      */
@@ -54,6 +77,28 @@ public class Ejercicio7 {
         }
         return result;
     }
+
+    private static ArrayList<Integer> factoreoRecursivo(int a) {
+        return factoreoRecursivo(2,a,new ArrayList<Integer>());
+    }
+
+    private static ArrayList<Integer> factoreoRecursivo(int i,int a, ArrayList<Integer> arrayList) {
+        ArrayList<Integer> result = arrayList;
+        int j = a;
+
+        if (i<=j){
+            if(Ejercicio6.numeroPrimo(i)  &&  j%i ==0){
+                result.add(i);
+                j= j/i;
+                result = factoreoRecursivo(i,j,result);
+            }else{
+                result = factoreoRecursivo(i+1,j,result);
+            }
+        }
+        return result;
+    }
+
+
 
     /**
      * Compara los arrays de tal forma de que selecciona el numero primo compartido
@@ -86,6 +131,37 @@ public class Ejercicio7 {
         }
         return result;
     }
+//
+//    public static int contadorMenorComunRecursivo(ArrayList<Integer> a, ArrayList<Integer> b, Integer z){
+//        return contadorMenorComunRecursivo();
+//    }
+
+//    private static int contadorMenorComunRecursivo(ArrayList<Integer> a, ArrayList<Integer> b, Integer z) {
+//        ArrayList<Integer> contadorA = new ArrayList<Integer>();
+//        ArrayList<Integer> contadorB = new ArrayList<Integer>();
+//        int result =0;
+//
+//        for(int i=0; i<a.size();i++){
+//            if(a.get(i).equals(z)){
+//                contadorA.add(a.get(i));
+//            }
+//        }
+//        for(int j=0; j<b.size();j++){
+//            if(b.get(j).equals(z)){
+//                contadorB.add(b.get(j));
+//            }
+//        }
+//        if(contadorA.size()>=contadorB.size()) {
+//            for (int ai=0;ai<contadorB.size();ai++){
+//                result += (int)contadorB.get(ai);
+//            }
+//        }else {
+//            for (int ai = 0; ai < contadorA.size(); ai++) {
+//                result += (int)contadorA.get(ai);
+//            }
+//        }
+//        return result;
+//    }
 
 
 }
