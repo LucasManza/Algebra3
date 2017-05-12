@@ -63,25 +63,26 @@ public class Exercise1TP6 implements Exercise1 {
 
     public double[][] exerciseF(double[][] matrixA, double[][] matrixB, Calculator calculator) {
 
-        double[][] result= new double[matrixA.length][matrixB[0].length];
-        for (int i=0; i<result.length;i++){
-            for (int j=0; j<result[0].length;j++){
-//                result[i][j] = sumRow(exerciseD(matrixA,matrixB[j],calculator),calculator);
-                result[i][j] =
-            }
-        }
-        return result;
-    }
-
-    private double sumRow(double[] row,Calculator calculator) {
-        double result =0;
-        for (int i=0; i<row.length;i++){
-            result = calculator.sum(row[i],result);
-        }
-        return result;
+        double[][] matrixProduct= new double[matrixA.length][matrixB[0].length];
+//        int z=0;
+//        for (int i=0; i<matrixProduct.length;i++){
+//            for (int j=0; j<matrixProduct[i].length;j++){
+//                double multiplication = calculator.multiplication(matrixA[i][z],matrixB[z][j]);
+//                matrixProduct[i][j] = calculator.sum(multiplication,matrixProduct[i][j]);
+//                z++;
+//            }
+//            z=0;
+//        }
+        return matrixProduct;
     }
 
     public double[][] exerciseG(double[][] matrix, Calculator calculator) {
-        return new double[0][];
+        double[][] switchingMatrix = new double[matrix[0].length][matrix.length];
+        for (int i=0;i<matrix.length;i++){
+            for (int j=0;j<matrix[i].length;j++){
+                switchingMatrix[j][i]=matrix[i][j];
+            }
+        }
+        return switchingMatrix;
     }
 }
