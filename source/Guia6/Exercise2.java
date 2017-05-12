@@ -1,4 +1,4 @@
-import Guia6.Calculator;
+package Guia6;
 
 public interface Exercise2{
 	
