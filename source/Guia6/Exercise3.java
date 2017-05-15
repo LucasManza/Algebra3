@@ -20,11 +20,11 @@ public interface Exercise3{
 
 	public double[][] exerciseCIII(double[][] matrixA, double[][] matrixB, Calculator calculator);
 
-	public double[][] exerciseDI(double[][] matrixA, double[] vectorX, Calculator calculator);
+	public double[][] exerciseDI(double[][] matrixA, int k1A, int k2A, double[] vectorX, Calculator calculator);
 
-	public double[][] exerciseDII(double[][] matrixA, double[][] matrixB, Calculator calculator);
+	public double[][] exerciseDII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator);
 
-	public double[][] exerciseDIII(double[][] matrixA, double[][] matrixB, Calculator calculator);
+	public double[][] exerciseDIII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator);
 
 	public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator);
 }
