@@ -56,9 +56,19 @@ public class Guia6Test {
         System.out.println("Exercise 2) B), matrix is upper diagonal: "+exercise2.exerciseB(matrix4,calculator));
         System.out.println("-----------------------------------------");
 
-
-
-
+        Exercise4TP6 exercise4 = new Exercise4TP6();
+        Node<Double> node1 = new NodeDouble(1,1, 1.0);
+        Node<Double> node2 = new NodeDouble(1,2, 7.0);
+        Node<Double> node3 = new NodeDouble(1,3, -2.0);
+        Node<Double> node4 = new NodeDouble(2, 2, -3.0);
+        Node<Double> node5 = new NodeDouble(2, 3, 4.0);
+        Node<Double> node6 = new NodeDouble(3, 3, 2.0);
+        System.out.println("Matrix A and B :");
+        Node[] matrixA = {node1,node2,node3,node4,node5,node6};
+        Node[] matrixB = {node1,node2,node3,node4,node5,node6};
+        printMatrixUpperTriangular(matrixA);
+        System.out.println("Matrix (A+B):");
+        printMatrixUpperTriangular(exercise4.summation(matrixA,matrixB,calculator));
     }
 
     public static void printMatrix(double[][] matrix) {
@@ -79,5 +89,15 @@ public class Guia6Test {
             }
         System.out.println();
         }
+
+    public static void printMatrixUpperTriangular(Node[] matrix) {
+        System.out.println("\n"+"Nodes:");
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println("Row: "+matrix[i].getRow()+"\t"+"Column: "+matrix[i].getColumn()
+            +"\t"+"Value: "+ matrix[i].getValue());
+        }
+        System.out.println();
+    }
+
 
 }
