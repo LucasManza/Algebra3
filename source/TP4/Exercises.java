@@ -53,8 +53,40 @@ public class Exercises implements  TP4 {
 
     @Override
     public double[] exercise5WithoutPivoteo(double[][] coefficients, double[] independentTerms) {
-        return new double[0];
+        double[][] coefficients2 = coefficients;
+        double[] independentTerms2= independentTerms;
+        for (int i=0; i<coefficients2.length; i++){
+            for (int j=0; j<coefficients2.length;j++){
+//                coefficients2=makeDiagonalToOneGauss(coefficients2,i,j);
+                coefficients2[i][j] = coefficients2[i][j] / coefficients2[i][i];
+           }
+            //                independentTerms2=independentTermsByMakeDiagonalToOne(coefficients2,independentTerms2);
+            independentTerms2[i]= independentTerms2[i]/coefficients[i][i];
+            coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
+//            independentTerms2 =
+        }
+        return exercise1(coefficients2,independentTerms2);
     }
+
+    private double[][] makeZeroUnderDiagonal(double[][] coefficients, int position) {
+        double[][] coefficients2 = coefficients;
+        if(position<= coefficients.length-1)
+        for (int i=position;i<coefficients.length;i++){
+            for (int j= position;j<coefficients.length;j++) {
+                coefficients2[i][j] = coefficients2[i][j] - (coefficients2[i][]*coefficients2[][j]);
+            }
+        }
+        return coefficients2;
+    }
+
+    private double[][] makeDiagonalToOneGauss(double[][] coefficients,int row ,int column){
+        double[][] result = coefficients;
+        for (int i=column;i<coefficients.length;i++){
+            result[row][column]  = result[row][column]/result[row][row];
+        }
+        return result;
+    }
+
 
     @Override
     public double[] exercise5PartialPivoteo(double[][] coefficients, double[] independentTerms) {
