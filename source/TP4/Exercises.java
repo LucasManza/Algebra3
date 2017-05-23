@@ -9,7 +9,14 @@ public class Exercises implements  TP4 {
 
     @Override
     public double[] exercise1(double[][] coefficients, double[] independentTerms) {
-        return new double[0];
+        double[] result = new double[independentTerms.length];
+        for (int i=coefficients.length-1;i>=0;i--){
+            result[i] = independentTerms[i];
+            for (int j=i+1; j<coefficients.length; j++){
+                result[i] -= (coefficients[i][j]*result[j]);
+            }
+        }
+        return result;
     }
 
     @Override
