@@ -1,3 +1,7 @@
+package TP4;
+
+import Guia6.Calculator;
+
 public interface TP4{
 
 	double[] exercise1(double[][] coefficients, double[] independentTerms);
