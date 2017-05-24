@@ -63,17 +63,26 @@ public class Exercises implements  TP4 {
             //                independentTerms2=independentTermsByMakeDiagonalToOne(coefficients2,independentTerms2);
             independentTerms2[i]= independentTerms2[i]/coefficients[i][i];
             coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
-//            independentTerms2 =
+            independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
         }
         return exercise1(coefficients2,independentTerms2);
     }
 
+    private double[] independentTermsByMakeZeroUnderDiagonal(double[][] coefficients,double[] independentTerm, int position) {
+        double[] result = independentTerm;
+        for (int i=position+1; i<result.length; i++){
+            result[i] = result[i] - (coefficients[i][position]*result[i]);
+        }
+        return result;
+    }
+
     private double[][] makeZeroUnderDiagonal(double[][] coefficients, int position) {
         double[][] coefficients2 = coefficients;
-        if(position<= coefficients.length-1)
-        for (int i=position;i<coefficients.length;i++){
-            for (int j= position;j<coefficients.length;j++) {
-                coefficients2[i][j] = coefficients2[i][j] - (coefficients2[i][]*coefficients2[][j]);
+        if(position+1<coefficients.length) {
+            for (int i = position+1; i < coefficients.length; i++) {
+                for (int j = position; j < coefficients.length; j++) {
+                    coefficients2[i][j] = coefficients2[i][j] - (coefficients2[i][position]*coefficients2[position][j]);
+                }
             }
         }
         return coefficients2;
