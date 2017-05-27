@@ -7,6 +7,9 @@ import Guia6.Calculator;
  */
 public class Exercises implements  TP4 {
 
+    /**
+     * Description: Solve equations by triangle upper matrix.
+     */
     @Override
     public double[] exercise1(double[][] coefficients, double[] independentTerms) {
         double[] result = new double[independentTerms.length];
@@ -19,6 +22,9 @@ public class Exercises implements  TP4 {
         return result;
     }
 
+    /**
+     * Description: Solve equations for an triangle lower matrix.
+     */
     @Override
     public double[] exercise2(double[][] coefficients, double[] independentTerms) {
         double[][] coefficients2 = makeDiagonalToOne(coefficients);
@@ -32,7 +38,9 @@ public class Exercises implements  TP4 {
         }
         return result;
     }
-
+    /**
+     * Description: Auxiliary method that divide the term by diagonal position in the matrix for triangle lower matrix.
+     */
     private double[] independentTermsByMakeDiagonalToOne(double[][] coefficients, double[] independentTerms) {
         double[] result = independentTerms;
         for (int i=0; i<coefficients.length;i++){
@@ -40,7 +48,9 @@ public class Exercises implements  TP4 {
         }
         return result;
     }
-
+    /**
+     * Description: Auxiliary method that divide diagonal by itself position in the matrix.
+     */
     private double[][] makeDiagonalToOne(double[][] coefficients) {
         double[][] result = coefficients;
         for (int i=0; i<coefficients.length;i++){
@@ -51,55 +61,102 @@ public class Exercises implements  TP4 {
         return result;
     }
 
+    /**
+     * Description: Solve equations by Gauss's Method. Without pivote resolution.
+     */
     @Override
     public double[] exercise5WithoutPivoteo(double[][] coefficients, double[] independentTerms) {
         double[][] coefficients2 = coefficients;
         double[] independentTerms2= independentTerms;
+        double divider;
         for (int i=0; i<coefficients2.length; i++){
+            divider = coefficients2[i][i];
             for (int j=0; j<coefficients2.length;j++){
-//                coefficients2=makeDiagonalToOneGauss(coefficients2,i,j);
-                coefficients2[i][j] = coefficients2[i][j] / coefficients2[i][i];
+                coefficients2[i][j] = coefficients2[i][j] / divider;
            }
-            //                independentTerms2=independentTermsByMakeDiagonalToOne(coefficients2,independentTerms2);
-            independentTerms2[i]= independentTerms2[i]/coefficients[i][i];
-            coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
+            independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
+            coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
         }
         return exercise1(coefficients2,independentTerms2);
     }
 
+    /**
+     * Description: Applies consequences by making columns under the diagonal to zeros, for independent term.
+     */
     private double[] independentTermsByMakeZeroUnderDiagonal(double[][] coefficients,double[] independentTerm, int position) {
         double[] result = independentTerm;
         for (int i=position+1; i<result.length; i++){
-            result[i] = result[i] - (coefficients[i][position]*result[i]);
+            result[i] = result[i] - (coefficients[i][position]*result[position]);
         }
         return result;
     }
 
+    /**
+     * Description: Makes columns under the diagonal to zeros.
+     */
     private double[][] makeZeroUnderDiagonal(double[][] coefficients, int position) {
         double[][] coefficients2 = coefficients;
         if(position+1<coefficients.length) {
             for (int i = position+1; i < coefficients.length; i++) {
+                double aux = coefficients2[i][position];
                 for (int j = position; j < coefficients.length; j++) {
-                    coefficients2[i][j] = coefficients2[i][j] - (coefficients2[i][position]*coefficients2[position][j]);
+//                    coefficients2[i][j] = coefficients2[i][j] - (coefficients2[i][position]*coefficients2[position][j]);
+                    coefficients2[i][j] = coefficients2[i][j] - (aux*coefficients2[position][j]);
                 }
             }
         }
         return coefficients2;
     }
 
-    private double[][] makeDiagonalToOneGauss(double[][] coefficients,int row ,int column){
-        double[][] result = coefficients;
-        for (int i=column;i<coefficients.length;i++){
-            result[row][column]  = result[row][column]/result[row][row];
-        }
-        return result;
-    }
-
-
     @Override
     public double[] exercise5PartialPivoteo(double[][] coefficients, double[] independentTerms) {
-        return new double[0];
+        double[][] coefficients2 = coefficients;
+        double[] independentTerms2= independentTerms;
+        double divider;
+        for (int i=0; i<coefficients2.length; i++){
+//            coefficients2 = partialPivoteoMatrix(coefficients2,i);
+
+            //Partial pivote begins here.
+            double max = coefficients[i][i];
+            for (int z=i;z<coefficients.length;z++){
+                if(coefficients[z][i]>max){
+
+                    double[] auxMatrix = coefficients2[z];
+                    coefficients2[z] =  coefficients2[i];
+                    coefficients2[i] = auxMatrix;
+
+                    double auxIndependentTerm = independentTerms2[z];
+                    independentTerms2[z] = independentTerms2[i];
+                    independentTerms2[i]= auxIndependentTerm;
+                }
+            }
+            //Partial pivote ends here.
+
+
+            divider = coefficients2[i][i];
+            for (int j=0; j<coefficients2.length;j++){
+                coefficients2[i][j] = coefficients2[i][j] / divider;
+            }
+            independentTerms2[i]= independentTerms2[i]/divider;
+            independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
+            coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
+        }
+        return exercise1(coefficients2,independentTerms2);
+    }
+
+    private double[][] partialPivoteoMatrix(double[][] coefficients, int position) {
+        double[][] result = coefficients;
+        double max = coefficients[position][position];
+        for (int z=position;z<coefficients.length;z++){
+            if(coefficients[z][position]>max){
+                double[] aux = result[z];
+                result[z] =  coefficients[position];
+                result[position] = aux;
+            }
+        }
+
+        return result;
     }
 
     @Override
