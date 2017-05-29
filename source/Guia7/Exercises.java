@@ -246,7 +246,7 @@ public class Exercises implements  TP4 {
             if (divider!=0)
                 independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
-            coefficients2 = makeZeroUnderDiagonalTridiagonalMatrix(coefficients2,i,indexColumn, stopLoop);
+            coefficients2 = makeZeroUnderDiagonalTridiagonalMatrix(coefficients2,i, stopLoop);
         }
         return exercise1(coefficients2,independentTerms2);
     }
