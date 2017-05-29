@@ -74,7 +74,8 @@ public class Exercises implements  TP4 {
                 if (divider!=0)
                     coefficients2[i][j] = coefficients2[i][j] / divider;
            }
-            independentTerms2[i]= independentTerms2[i]/divider;
+            if (divider!=0)
+                independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
             coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
         }
@@ -140,7 +141,8 @@ public class Exercises implements  TP4 {
                 if (divider!=0)
                     coefficients2[i][j] = coefficients2[i][j] / divider;
             }
-            independentTerms2[i]= independentTerms2[i]/divider;
+            if (divider!=0)
+                independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
             coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
         }
@@ -177,7 +179,8 @@ public class Exercises implements  TP4 {
                 if (divider!=0)
                     coefficients2[i][j] = coefficients2[i][j] / divider;
             }
-            independentTerms2[i]= independentTerms2[i]/divider;
+            if (divider!=0)
+                independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
             coefficients2 = makeZeroUnderDiagonalForUpperHessemberg(coefficients2,i);
         }
@@ -185,7 +188,7 @@ public class Exercises implements  TP4 {
     }
 
     /**
-     * Description: Makes the position, same column but the next row, to zero. Only necessary to analize the next row in the same column
+     * Description: Makes the position, same column but the next row, to zero. Only necessary to analyze the next row in the same column
      * because the precondition must be a Upper Hessemberg Matrix.
      */
     private double[][] makeZeroUnderDiagonalForUpperHessemberg(double[][] coefficients, int position) {
@@ -202,7 +205,61 @@ public class Exercises implements  TP4 {
 
     @Override
     public double[] exercise7(double[][] coefficients, double[] independentTerms, Calculator calculator) {
-        return new double[0];
+        double[][] coefficients2 = coefficients;
+        double[] independentTerms2= independentTerms;
+        double divider;
+        int indexColumn=0;
+        int stopLoop;
+        for (int i=0; i<coefficients2.length; i++){
+
+            //Partial pivote begins here.
+            double max = coefficients[i][i];
+            for (int z=i;z<coefficients.length;z++){
+                if(coefficients[z][i]>max){
+
+                    double[] auxMatrix = coefficients2[z];
+                    coefficients2[z] =  coefficients2[i];
+                    coefficients2[i] = auxMatrix;
+
+                    double auxIndependentTerm = independentTerms2[z];
+                    independentTerms2[z] = independentTerms2[i];
+                    independentTerms2[i]= auxIndependentTerm;
+                }
+            }
+            //Partial pivote ends here.
+
+
+            divider = coefficients2[i][i];
+
+            stopLoop = i - 1;
+
+            if(i!=0) {
+                indexColumn = i-1;
+            }
+            if (i==coefficients2.length-1)
+                stopLoop= coefficients2.length;
+
+            for (int j=indexColumn; j<stopLoop;j++){
+                if (divider!=0)
+                    coefficients2[i][j] = coefficients2[i][j] / divider;
+            }
+            if (divider!=0)
+                independentTerms2[i]= independentTerms2[i]/divider;
+            independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
+            coefficients2 = makeZeroUnderDiagonalTridiagonalMatrix(coefficients2,i,indexColumn, stopLoop);
+        }
+        return exercise1(coefficients2,independentTerms2);
+    }
+
+    private double[][] makeZeroUnderDiagonalTridiagonalMatrix(double[][] coefficients, int position, int stopLoop) {
+        double[][] coefficients2 = coefficients;
+        if(position+1<coefficients.length) {
+            double aux = coefficients2[position+1][position];
+            for (int j = position; j < stopLoop; j++) {
+                coefficients2[position+1][j] = coefficients2[position+1][j] - (aux*coefficients2[position][j]);
+            }
+        }
+        return coefficients2;
     }
 
     @Override
