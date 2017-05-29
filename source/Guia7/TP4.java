@@ -1,6 +1,4 @@
-package TP4;
-
-import Guia6.Calculator;
+package Guia7;
 
 public interface TP4{
 

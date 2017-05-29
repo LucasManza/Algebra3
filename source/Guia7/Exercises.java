@@ -1,6 +1,5 @@
-package TP4;
+package Guia7;
 
-import Guia6.Calculator;
 
 /**
  * Created by santiagohazana on 5/23/17.
@@ -72,7 +71,8 @@ public class Exercises implements  TP4 {
         for (int i=0; i<coefficients2.length; i++){
             divider = coefficients2[i][i];
             for (int j=0; j<coefficients2.length;j++){
-                coefficients2[i][j] = coefficients2[i][j] / divider;
+                if (divider!=0)
+                    coefficients2[i][j] = coefficients2[i][j] / divider;
            }
             independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
@@ -109,13 +109,15 @@ public class Exercises implements  TP4 {
         return coefficients2;
     }
 
+    /**
+     * Description: Solve equations by Gauss's Method. With partial pivote resolution.
+     */
     @Override
     public double[] exercise5PartialPivoteo(double[][] coefficients, double[] independentTerms) {
         double[][] coefficients2 = coefficients;
         double[] independentTerms2= independentTerms;
         double divider;
         for (int i=0; i<coefficients2.length; i++){
-//            coefficients2 = partialPivoteoMatrix(coefficients2,i);
 
             //Partial pivote begins here.
             double max = coefficients[i][i];
@@ -133,10 +135,10 @@ public class Exercises implements  TP4 {
             }
             //Partial pivote ends here.
 
-
             divider = coefficients2[i][i];
             for (int j=0; j<coefficients2.length;j++){
-                coefficients2[i][j] = coefficients2[i][j] / divider;
+                if (divider!=0)
+                    coefficients2[i][j] = coefficients2[i][j] / divider;
             }
             independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
@@ -144,24 +146,58 @@ public class Exercises implements  TP4 {
         }
         return exercise1(coefficients2,independentTerms2);
     }
-
-    private double[][] partialPivoteoMatrix(double[][] coefficients, int position) {
-        double[][] result = coefficients;
-        double max = coefficients[position][position];
-        for (int z=position;z<coefficients.length;z++){
-            if(coefficients[z][position]>max){
-                double[] aux = result[z];
-                result[z] =  coefficients[position];
-                result[position] = aux;
-            }
-        }
-
-        return result;
-    }
-
+    /**
+     * Description: Solve equations for Upper Hessemberg Matrix by Gauss's Method. With partial pivote resolution (it´s necessary.)
+     */
     @Override
     public double[] exercise6(double[][] coefficients, double[] independentTerms, Calculator calculator) {
-        return new double[0];
+        double[][] coefficients2 = coefficients;
+        double[] independentTerms2= independentTerms;
+        double divider;
+        for (int i=0; i<coefficients2.length; i++){
+
+            //Partial pivote begins here.
+            double max = coefficients[i][i];
+            for (int z=i;z<coefficients.length;z++){
+                if(coefficients[z][i]>max){
+
+                    double[] auxMatrix = coefficients2[z];
+                    coefficients2[z] =  coefficients2[i];
+                    coefficients2[i] = auxMatrix;
+
+                    double auxIndependentTerm = independentTerms2[z];
+                    independentTerms2[z] = independentTerms2[i];
+                    independentTerms2[i]= auxIndependentTerm;
+                }
+            }
+            //Partial pivote ends here.
+
+            divider = coefficients2[i][i];
+            for (int j=0; j<coefficients2.length;j++){
+                if (divider!=0)
+                    coefficients2[i][j] = coefficients2[i][j] / divider;
+            }
+            independentTerms2[i]= independentTerms2[i]/divider;
+            independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
+            coefficients2 = makeZeroUnderDiagonalForUpperHessemberg(coefficients2,i);
+        }
+        return exercise1(coefficients2,independentTerms2);
+    }
+
+    /**
+     * Description: Makes the position, same column but the next row, to zero. Only necessary to analize the next row in the same column
+     * because the precondition must be a Upper Hessemberg Matrix.
+     */
+    private double[][] makeZeroUnderDiagonalForUpperHessemberg(double[][] coefficients, int position) {
+        double[][] coefficients2 = coefficients;
+        if(position+1<coefficients.length) {
+                double aux = coefficients2[position+1][position];
+                for (int j = position; j < coefficients.length; j++) {
+                    coefficients2[position+1][j] = coefficients2[position+1][j] - (aux*coefficients2[position][j]);
+                }
+            }
+        return coefficients2;
+
     }
 
     @Override
@@ -171,8 +207,21 @@ public class Exercises implements  TP4 {
 
     @Override
     public double[][] exercise8(double[][] coefficients) {
+//        double[][] extendsMatrix = extendsMatrixForGaussJordan(coefficients);
         return new double[0][];
     }
+
+//    private double[][] extendsMatrixForGaussJordan(double[][] coefficients) {
+//        double[][] result = new double[coefficients.length][coefficients.length*2];
+//        for (int i=0; i<coefficients.length;i++){
+//            for (int j=0;j<coefficients[i].length;j++){
+//                if(j>coefficients.length && i==){
+//
+//                }
+//                    result[i][j] = coefficients[i]
+//            }
+//        }
+//    }
 
     @Override
     public double[] exercise9(double[][] coefficients, double[] independentTerms) {

@@ -1,4 +1,4 @@
-package TP4;
+package Guia7;
 
 public interface Calculator{
 	
