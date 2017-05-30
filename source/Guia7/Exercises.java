@@ -70,12 +70,12 @@ public class Exercises implements  TP4 {
         double divider;
         for (int i=0; i<coefficients2.length; i++){
             divider = coefficients2[i][i];
-            for (int j=0; j<coefficients2.length;j++){
-                if (divider!=0)
+            if (divider!=0) {
+                for (int j = 0; j < coefficients2.length; j++) {
                     coefficients2[i][j] = coefficients2[i][j] / divider;
-           }
-            if (divider!=0)
-                independentTerms2[i]= independentTerms2[i]/divider;
+                }
+                independentTerms2[i] = independentTerms2[i] / divider;
+            }
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
             coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
         }
@@ -137,12 +137,12 @@ public class Exercises implements  TP4 {
             //Partial pivote ends here.
 
             divider = coefficients2[i][i];
-            for (int j=0; j<coefficients2.length;j++){
-                if (divider!=0)
+            if (divider!=0) {
+                for (int j = 0; j < coefficients2.length; j++) {
                     coefficients2[i][j] = coefficients2[i][j] / divider;
+                }
+                independentTerms2[i] = independentTerms2[i] / divider;
             }
-            if (divider!=0)
-                independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
             coefficients2 = makeZeroUnderDiagonal(coefficients2,i);
         }
@@ -158,29 +158,27 @@ public class Exercises implements  TP4 {
         double divider;
         for (int i=0; i<coefficients2.length; i++){
 
-            //Partial pivote begins here.
+            //Simple pivote begins here. Pivote only with next line.
             double max = coefficients[i][i];
-            for (int z=i;z<coefficients.length;z++){
-                if(coefficients[z][i]>max){
-
-                    double[] auxMatrix = coefficients2[z];
-                    coefficients2[z] =  coefficients2[i];
+                if( (i+1)< coefficients2.length && coefficients[i+1][i]>max){
+                    double[] auxMatrix = coefficients2[i+1];
+                    coefficients2[i+1] =  coefficients2[i];
                     coefficients2[i] = auxMatrix;
 
-                    double auxIndependentTerm = independentTerms2[z];
-                    independentTerms2[z] = independentTerms2[i];
+                    double auxIndependentTerm = independentTerms2[i+1];
+                    independentTerms2[i+1] = independentTerms2[i];
                     independentTerms2[i]= auxIndependentTerm;
                 }
-            }
+//            }
             //Partial pivote ends here.
 
             divider = coefficients2[i][i];
-            for (int j=0; j<coefficients2.length;j++){
-                if (divider!=0)
+            if (divider!=0) {
+                for (int j = 0; j < coefficients2.length; j++) {
                     coefficients2[i][j] = coefficients2[i][j] / divider;
+                }
+                independentTerms2[i] = independentTerms2[i] / divider;
             }
-            if (divider!=0)
-                independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
             coefficients2 = makeZeroUnderDiagonalForUpperHessemberg(coefficients2,i);
         }
@@ -213,40 +211,40 @@ public class Exercises implements  TP4 {
         for (int i=0; i<coefficients2.length; i++){
 
             //Partial pivote begins here.
-            double max = coefficients[i][i];
-            for (int z=i;z<coefficients.length;z++){
-                if(coefficients[z][i]>max){
-
-                    double[] auxMatrix = coefficients2[z];
-                    coefficients2[z] =  coefficients2[i];
-                    coefficients2[i] = auxMatrix;
-
-                    double auxIndependentTerm = independentTerms2[z];
-                    independentTerms2[z] = independentTerms2[i];
-                    independentTerms2[i]= auxIndependentTerm;
-                }
-            }
+//            double max = coefficients[i][i];
+//            for (int z=i;z<coefficients.length;z++){
+//                if(coefficients[z][i]>max){
+//
+//                    double[] auxMatrix = coefficients2[z];
+//                    coefficients2[z] =  coefficients2[i];
+//                    coefficients2[i] = auxMatrix;
+//
+//                    double auxIndependentTerm = independentTerms2[z];
+//                    independentTerms2[z] = independentTerms2[i];
+//                    independentTerms2[i]= auxIndependentTerm;
+//                }
+//            }
             //Partial pivote ends here.
-
-
+//
+//
             divider = coefficients2[i][i];
 
-            stopLoop = i - 1;
-
-            if(i!=0) {
+            if(i>0) {
                 indexColumn = i-1;
             }
+
+            stopLoop = i + 1;
+
             if (i==coefficients2.length-1)
                 stopLoop= coefficients2.length;
-
-            for (int j=indexColumn; j<stopLoop;j++){
-                if (divider!=0)
+            if (divider!=0) {
+                for (int j = indexColumn; j < stopLoop; j++) {
                     coefficients2[i][j] = coefficients2[i][j] / divider;
+                }
+                independentTerms2[i] = independentTerms2[i] / divider;
             }
-            if (divider!=0)
-                independentTerms2[i]= independentTerms2[i]/divider;
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
-            coefficients2 = makeZeroUnderDiagonalTridiagonalMatrix(coefficients2,i, stopLoop);
+            coefficients2 = makeZeroUnderDiagonalTridiagonalMatrix(coefficients2,indexColumn, stopLoop);
         }
         return exercise1(coefficients2,independentTerms2);
     }

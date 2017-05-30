@@ -22,12 +22,21 @@ public class ExercisesTest {
 //        System.out.println("Exercises 5 with pivote solution: ");
 //        printMatrix(exercises.exercise5PartialPivoteo(matrix1,independtTerms1));
 //        System.out.println("Exercises 6, Gauss by matrix Upper Hessemberg.");
-        double[][] matrixUpperHessemberg = {{2,4,6,8},{3,3,6,9},{0,5,5,15},{0,0,7,21}};
-        double[] independentTermUpperHessemberg = {2,3,5,7};
-        printMatrix(matrixUpperHessemberg);
-        printMatrix(independentTermUpperHessemberg);
+
+//        double[][] matrixUpperHessemberg = {{2,4,6,8},{3,3,6,9},{0,5,5,15},{0,0,7,21}};
+//        double[] independentTermUpperHessemberg = {2,3,5,7};
+//        printMatrix(matrixUpperHessemberg);
+//        printMatrix(independentTermUpperHessemberg);
+//        System.out.println("Solution:");
+//        printMatrix(exercises.exercise6(matrixUpperHessemberg,independentTermUpperHessemberg,calculator));
+
+        double[][] matrixTridiagonal = {{1,2,0,0},{2,2,6,0},{0,6,3,8},{0,0,8,4}};
+        double[] independentTermTridiagonal = {1,1,1,1};
+        printMatrix(matrixTridiagonal);
+        printMatrix(independentTermTridiagonal);
         System.out.println("Solution:");
-        printMatrix(exercises.exercise6(matrixUpperHessemberg,independentTermUpperHessemberg,calculator));
+        printMatrix(exercises.exercise7(matrixTridiagonal,independentTermTridiagonal,calculator));
+
     }
     public static void printMatrix(double[][] matrix) {
         System.out.println("\n"+"Matrix:");
