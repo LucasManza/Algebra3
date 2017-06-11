@@ -7,7 +7,7 @@ public class ExercisesTest {
     public static void main(String[] args ){
         double[][] coefTriangleUpperDiag1 = {{1,3,5.2},{0,1,3.4},{0,0,1}};
         double[] independentTerms = {-1.9,11.5,2};
-        printMatrix(coefTriangleUpperDiag1);
+//        printMatrix(coefTriangleUpperDiag1);
         Exercises exercises = new Exercises();
         CalculatorTP4 calculator = new CalculatorTP4();
 
@@ -36,6 +36,7 @@ public class ExercisesTest {
         printMatrix(independentTermTridiagonal);
         System.out.println("Solution:");
         printMatrix(exercises.exercise7(matrixTridiagonal,independentTermTridiagonal,calculator));
+//        printMatrix(exercises.exercise6(matrixTridiagonal,independentTermTridiagonal,calculator));
 
     }
     public static void printMatrix(double[][] matrix) {

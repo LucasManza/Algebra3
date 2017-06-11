@@ -102,7 +102,6 @@ public class Exercises implements  TP4 {
             for (int i = position+1; i < coefficients.length; i++) {
                 double aux = coefficients2[i][position];
                 for (int j = position; j < coefficients.length; j++) {
-//                    coefficients2[i][j] = coefficients2[i][j] - (coefficients2[i][position]*coefficients2[position][j]);
                     coefficients2[i][j] = coefficients2[i][j] - (aux*coefficients2[position][j]);
                 }
             }
@@ -170,7 +169,7 @@ public class Exercises implements  TP4 {
                     independentTerms2[i]= auxIndependentTerm;
                 }
 //            }
-            //Partial pivote ends here.
+            //Simple pivote ends here.
 
             divider = coefficients2[i][i];
             if (divider!=0) {
@@ -198,57 +197,39 @@ public class Exercises implements  TP4 {
                 }
             }
         return coefficients2;
-
     }
 
+    /**
+     * Description: Solve Tridiagonal and Simetric Matrix, by Spline Cubic method
+     */
     @Override
     public double[] exercise7(double[][] coefficients, double[] independentTerms, Calculator calculator) {
         double[][] coefficients2 = coefficients;
         double[] independentTerms2= independentTerms;
         double divider;
-        int indexColumn=0;
         int stopLoop;
         for (int i=0; i<coefficients2.length; i++){
-
-            //Partial pivote begins here.
-//            double max = coefficients[i][i];
-//            for (int z=i;z<coefficients.length;z++){
-//                if(coefficients[z][i]>max){
-//
-//                    double[] auxMatrix = coefficients2[z];
-//                    coefficients2[z] =  coefficients2[i];
-//                    coefficients2[i] = auxMatrix;
-//
-//                    double auxIndependentTerm = independentTerms2[z];
-//                    independentTerms2[z] = independentTerms2[i];
-//                    independentTerms2[i]= auxIndependentTerm;
-//                }
-//            }
-            //Partial pivote ends here.
-//
-//
             divider = coefficients2[i][i];
 
-            if(i>0) {
-                indexColumn = i-1;
-            }
-
-            stopLoop = i + 1;
-
-            if (i==coefficients2.length-1)
-                stopLoop= coefficients2.length;
+            stopLoop = i+2;
+            if (i== coefficients2.length-1)
+                stopLoop=coefficients2.length;
             if (divider!=0) {
-                for (int j = indexColumn; j < stopLoop; j++) {
+                for (int j = 0; j < stopLoop; j++) {
                     coefficients2[i][j] = coefficients2[i][j] / divider;
                 }
                 independentTerms2[i] = independentTerms2[i] / divider;
             }
             independentTerms2 = independentTermsByMakeZeroUnderDiagonal(coefficients2,independentTerms2,i);
-            coefficients2 = makeZeroUnderDiagonalTridiagonalMatrix(coefficients2,indexColumn, stopLoop);
+            coefficients2 = makeZeroUnderDiagonalTridiagonalMatrix(coefficients2,i,stopLoop);
         }
         return exercise1(coefficients2,independentTerms2);
     }
 
+    /**
+     * Descriptin: Similar to makeZeroUnderDiagonal, but process only moves up to stopLoop position.
+     * Generally this stopLoop is equals to column plus two.
+     */
     private double[][] makeZeroUnderDiagonalTridiagonalMatrix(double[][] coefficients, int position, int stopLoop) {
         double[][] coefficients2 = coefficients;
         if(position+1<coefficients.length) {
@@ -258,6 +239,14 @@ public class Exercises implements  TP4 {
             }
         }
         return coefficients2;
+//        double[][] coefficients2 = coefficients;
+//        if(position+1<coefficients.length) {
+//                double aux = coefficients2[position][position];
+//                for (int j = position; j < coefficients2.length; j++) {
+//                    coefficients2[position+1][j] = coefficients2[position+1][j] - (aux*coefficients2[position+1][j]);
+//            }
+//        }
+//        return coefficients2;
     }
 
     @Override
