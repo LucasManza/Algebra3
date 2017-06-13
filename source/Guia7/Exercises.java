@@ -249,23 +249,67 @@ public class Exercises implements  TP4 {
 //        return coefficients2;
     }
 
+    /**
+     * Descriptin: Calculates inverse of a particular matrix by Gauss Jordan method.
+     */
     @Override
     public double[][] exercise8(double[][] coefficients) {
-//        double[][] extendsMatrix = extendsMatrixForGaussJordan(coefficients);
-        return new double[0][];
+        double[][] coefficients2 = extendsMatrixForGaussJordanInverse(coefficients);
+        double divider;
+        for (int i=0; i<coefficients2.length; i++){
+            divider = coefficients2[i][i];
+            if (divider!=0) {
+                for (int j = i; j < coefficients2[i].length; j++) {
+                    coefficients2[i][j] = coefficients2[i][j] / divider;
+                }
+            }
+            coefficients2 = makeZeroGaussJordan(coefficients2,i);
+        }
+        double[][] inverse = new double[coefficients.length][coefficients.length];
+        for (int z=0;z<coefficients.length;z++){
+            for (int k=0;k<coefficients.length;k++){
+                inverse[z][k] = coefficients2[z][k+coefficients2.length];
+            }
+        }
+        return inverse;
     }
 
-//    private double[][] extendsMatrixForGaussJordan(double[][] coefficients) {
-//        double[][] result = new double[coefficients.length][coefficients.length*2];
-//        for (int i=0; i<coefficients.length;i++){
-//            for (int j=0;j<coefficients[i].length;j++){
-//                if(j>coefficients.length && i==){
-//
-//                }
-//                    result[i][j] = coefficients[i]
-//            }
-//        }
-//    }
+    /**
+     * Description: Makes zero to elements under columns which must be one. In particularly, this represents descend method,
+     * in difference with ordinary Gauss, this one starts in the same (condition: position must be distinct from index 'i') .
+     * Condition checking position+1 < matrix length it's no more necessary. GaussJordan executes for the same row modifies with zero under him.
+     */
+    private double[][] makeZeroGaussJordan(double[][] extendsMatrix, int position) {
+        double[][] coefficients2 = extendsMatrix;
+            for (int i = 0; i < extendsMatrix.length; i++) {
+                double aux = coefficients2[i][position];
+                if (i!=position) {
+                    for (int j = position; j < extendsMatrix[i].length; j++) {
+                        coefficients2[i][j] = coefficients2[i][j] - (aux * coefficients2[position][j]);
+                    }
+                }
+            }
+        return coefficients2;
+    }
+
+    /**
+     * Description: To calculate the inverse of any matrix by GaussJordan you can treat the matrix as an extend ones (double size)
+     * but the half part it's an "identity" matrix.
+     */
+    private double[][] extendsMatrixForGaussJordanInverse(double[][] coefficients) {
+        double[][] result = new double[coefficients.length][coefficients.length*2];
+
+        for (int i=0; i<result.length;i++){
+            for (int j=0;j<result[i].length;j++){
+                if (j<coefficients.length){
+                    result[i][j] = coefficients[i][j];
+                }else if(i+coefficients.length==j){
+                    result[i][j] = 1;
+                }
+            }
+        }
+        return result;
+    }
 
     @Override
     public double[] exercise9(double[][] coefficients, double[] independentTerms) {

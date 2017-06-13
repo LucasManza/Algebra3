@@ -30,14 +30,17 @@ public class ExercisesTest {
 //        System.out.println("Solution:");
 //        printMatrix(exercises.exercise6(matrixUpperHessemberg,independentTermUpperHessemberg,calculator));
 
-        double[][] matrixTridiagonal = {{1,2,0,0},{2,2,6,0},{0,6,3,8},{0,0,8,4}};
-        double[] independentTermTridiagonal = {1,1,1,1};
-        printMatrix(matrixTridiagonal);
-        printMatrix(independentTermTridiagonal);
-        System.out.println("Solution:");
-        printMatrix(exercises.exercise7(matrixTridiagonal,independentTermTridiagonal,calculator));
-//        printMatrix(exercises.exercise6(matrixTridiagonal,independentTermTridiagonal,calculator));
+//        double[][] matrixTridiagonal = {{1,2,0,0},{2,2,6,0},{0,6,3,8},{0,0,8,4}};
+//        double[] independentTermTridiagonal = {1,1,1,1};
+//        printMatrix(matrixTridiagonal);
+//        printMatrix(independentTermTridiagonal);
+//        System.out.println("Solution:");
+//        printMatrix(exercises.exercise7(matrixTridiagonal,independentTermTridiagonal,calculator));
 
+        double[][] matrixGaussJordanInverse = {{2,1,-1},{-3,-1,2},{-2,1,1}};
+        printMatrix(matrixGaussJordanInverse);
+        System.out.println("Solution:");
+        printMatrix(exercises.exercise8(matrixGaussJordanInverse));
     }
     public static void printMatrix(double[][] matrix) {
         System.out.println("\n"+"Matrix:");
