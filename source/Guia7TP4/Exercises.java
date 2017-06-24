@@ -22,18 +22,19 @@ public class Exercises implements  TP4 {
     }
 
     /**
-     * Description: Solve equations for an triangle lower matrix. TODO: rehacer
+     * Description: Solve equations for an triangle lower matrix.
      */
     @Override
     public double[] exercise2(double[][] coefficients, double[] independentTerms) {
-        double[][] coefficients2 = makeDiagonalToOne(coefficients);
         double[] independentTerms2 = independentTermsByMakeDiagonalToOne(coefficients,independentTerms);
+        double[][] coefficients2 = makeDiagonalToOne(coefficients);
         double[] result = new double[independentTerms2.length];
         for (int i=0;i<coefficients2.length;i++){
             result[i] = independentTerms2[i];
             for (int j=i-1; j>=0; j--){
-                result[i] -= (coefficients[i][j]*result[j]);
+                result[i] -= (coefficients2[i][j]*result[j]);
             }
+
         }
         return result;
     }
