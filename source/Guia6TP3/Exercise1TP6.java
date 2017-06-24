@@ -61,20 +61,18 @@ public class Exercise1TP6 implements Exercise1 {
         return result;
     }
 
-    //TODO: rehacer
-
     public double[][] exerciseF(double[][] matrixA, double[][] matrixB, Calculator calculator) {
 
         double[][] matrixProduct= new double[matrixA.length][matrixB[0].length];
-//        int z=0;
-//        for (int i=0; i<matrixProduct.length;i++){
-//            for (int j=0; j<matrixProduct[i].length;j++){
-//                double multiplication = calculator.multiplication(matrixA[i][z],matrixB[z][j]);
-//                matrixProduct[i][j] = calculator.sum(multiplication,matrixProduct[i][j]);
-//                z++;
-//            }
-//            z=0;
-//        }
+
+        for (int i = 0; i < matrixProduct.length; i++) {
+            for (int j = 0; j < matrixProduct[i].length; j++) {
+                for (int k = 0; k < matrixA[0].length; k++) {
+                    matrixProduct[i][j] += calculator.multiplication(matrixA[i][k], matrixB[k][j]);
+                }
+            }
+        }
+        
         return matrixProduct;
     }
 
