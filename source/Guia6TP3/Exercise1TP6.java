@@ -1,4 +1,4 @@
-package Guia6;
+package Guia6TP3;
 
 /**
  * Created by Lucas on 11/5/2017.
@@ -60,6 +60,8 @@ public class Exercise1TP6 implements Exercise1 {
         }
         return result;
     }
+
+    //TODO: rehacer
 
     public double[][] exerciseF(double[][] matrixA, double[][] matrixB, Calculator calculator) {
 

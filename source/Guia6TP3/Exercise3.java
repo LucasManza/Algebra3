@@ -1,4 +1,4 @@
-package Guia6;
+package Guia6TP3;
 
 /**
  * Created by santiagohazana on 5/22/17.

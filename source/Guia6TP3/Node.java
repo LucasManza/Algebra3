@@ -1,4 +1,4 @@
-package Guia6;
+package Guia6TP3;
 
 public abstract class Node<T>{
 	

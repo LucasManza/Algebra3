@@ -1,4 +1,4 @@
-package Guia7;
+package Guia7TP4;
 
 public interface TP4{
 

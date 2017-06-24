@@ -1,4 +1,4 @@
-package Guia7;
+package Guia7TP4;
 
 
 /**
@@ -22,7 +22,7 @@ public class Exercises implements  TP4 {
     }
 
     /**
-     * Description: Solve equations for an triangle lower matrix.
+     * Description: Solve equations for an triangle lower matrix. TODO: rehacer
      */
     @Override
     public double[] exercise2(double[][] coefficients, double[] independentTerms) {
@@ -61,7 +61,7 @@ public class Exercises implements  TP4 {
     }
 
     /**
-     * Description: Solve equations by Gauss's Method. Without pivote resolution.
+     * Description: Solve equations by Gauss's Method. Without pivot resolution.
      */
     @Override
     public double[] exercise5WithoutPivoteo(double[][] coefficients, double[] independentTerms) {
@@ -110,7 +110,7 @@ public class Exercises implements  TP4 {
     }
 
     /**
-     * Description: Solve equations by Gauss's Method. With partial pivote resolution.
+     * Description: Solve equations by Gauss's Method. With partial pivot resolution.
      */
     @Override
     public double[] exercise5PartialPivoteo(double[][] coefficients, double[] independentTerms) {
@@ -119,7 +119,7 @@ public class Exercises implements  TP4 {
         double divider;
         for (int i=0; i<coefficients2.length; i++){
 
-            //Partial pivote begins here.
+            //Partial pivot begins here.
             double max = coefficients[i][i];
             for (int z=i;z<coefficients.length;z++){
                 if(coefficients[z][i]>max){
@@ -133,7 +133,7 @@ public class Exercises implements  TP4 {
                     independentTerms2[i]= auxIndependentTerm;
                 }
             }
-            //Partial pivote ends here.
+            //Partial pivot ends here.
 
             divider = coefficients2[i][i];
             if (divider!=0) {
@@ -148,7 +148,7 @@ public class Exercises implements  TP4 {
         return exercise1(coefficients2,independentTerms2);
     }
     /**
-     * Description: Solve equations for Upper Hessemberg Matrix by Gauss's Method. With partial pivote resolution (it´s necessary.)
+     * Description: Solve equations for Upper Hessemberg Matrix by Gauss's Method. With partial pivot resolution (it´s necessary.) TODO: rehacer
      */
     @Override
     public double[] exercise6(double[][] coefficients, double[] independentTerms, Calculator calculator) {
@@ -169,7 +169,7 @@ public class Exercises implements  TP4 {
                     independentTerms2[i]= auxIndependentTerm;
                 }
 //            }
-            //Simple pivote ends here.
+            //Simple pivot ends here.
 
             divider = coefficients2[i][i];
             if (divider!=0) {
@@ -200,7 +200,7 @@ public class Exercises implements  TP4 {
     }
 
     /**
-     * Description: Solve Tridiagonal and Simetric Matrix, by Spline Cubic method
+     * Description: Solve Tridiagonal and Symmetric Matrix, by Spline Cubic method
      */
     @Override
     public double[] exercise7(double[][] coefficients, double[] independentTerms, Calculator calculator) {
@@ -227,7 +227,7 @@ public class Exercises implements  TP4 {
     }
 
     /**
-     * Descriptin: Similar to makeZeroUnderDiagonal, but process only moves up to stopLoop position.
+     * Description: Similar to makeZeroUnderDiagonal, but process only moves up to stopLoop position.
      * Generally this stopLoop is equals to column plus two.
      */
     private double[][] makeZeroUnderDiagonalTridiagonalMatrix(double[][] coefficients, int position, int stopLoop) {
@@ -239,18 +239,10 @@ public class Exercises implements  TP4 {
             }
         }
         return coefficients2;
-//        double[][] coefficients2 = coefficients;
-//        if(position+1<coefficients.length) {
-//                double aux = coefficients2[position][position];
-//                for (int j = position; j < coefficients2.length; j++) {
-//                    coefficients2[position+1][j] = coefficients2[position+1][j] - (aux*coefficients2[position+1][j]);
-//            }
-//        }
-//        return coefficients2;
     }
 
     /**
-     * Descriptin: Calculates inverse of a particular matrix by Gauss Jordan method.
+     * Description: Calculates inverse of a particular matrix by Gauss Jordan method.
      */
     @Override
     public double[][] exercise8(double[][] coefficients) {
@@ -313,6 +305,8 @@ public class Exercises implements  TP4 {
 
     @Override
     public double[] exercise9(double[][] coefficients, double[] independentTerms) {
+
+
         return new double[0];
     }
 }
