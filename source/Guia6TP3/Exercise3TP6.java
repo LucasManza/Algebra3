@@ -9,7 +9,7 @@ public class Exercise3TP6 implements Exercise3 {
         int z = 0;
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i>=j){
+                if(i<=j){
                     double multiplication = calculator.multiplication(matrixA[i][j],vectorX[j]);
                     result[z] = calculator.sum(multiplication,result[z]);
                 }
@@ -23,11 +23,8 @@ public class Exercise3TP6 implements Exercise3 {
         double[][] result = new double[matrixA.length][matrixA.length];
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i>=j){
+                if(i<=j)
                     result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
-                }else{
-                    result[i][j] = 0;
-                }
             }
         }
         return result;
@@ -37,10 +34,9 @@ public class Exercise3TP6 implements Exercise3 {
         double[][] result = new double[matrixA.length][matrixA.length];
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i>=j){
-                    result[i][j] = calculator.multiplication(matrixA[i][j], matrixB[i][j]);
-                }else{
-                    result[i][j] = 0;
+                for (int k = 0; k < matrixA.length; k++) {
+                    if(i<=j)
+                        result[i][j] += (matrixA[i][k] * matrixB[k][j]);
                 }
             }
         }
@@ -52,7 +48,7 @@ public class Exercise3TP6 implements Exercise3 {
         int z = 0;
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i>=j+1){
+                if(i<=j+1){
                     double multiplication = calculator.multiplication(matrixA[i][j],vectorX[j]);
                     result[z] = calculator.sum(multiplication,result[z]);
                 }
@@ -66,11 +62,8 @@ public class Exercise3TP6 implements Exercise3 {
         double[][] result = new double[matrixA.length][matrixA.length];
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i>=j+1){
+                if(i<=j+1)
                     result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
-                }else{
-                    result[i][j] = 0;
-                }
             }
         }
         return result;
@@ -80,10 +73,9 @@ public class Exercise3TP6 implements Exercise3 {
         double[][] result = new double[matrixA.length][matrixA.length];
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i>=j+1){
-                    result[i][j] = calculator.multiplication(matrixA[i][j], matrixB[i][j]);
-                }else{
-                    result[i][j] = 0;
+                for (int k = 0; k < matrixA.length; k++) {
+                    if(i<=j+1)
+                        result[i][j] += (matrixA[i][k] * matrixB[k][j]);
                 }
             }
         }
@@ -95,14 +87,12 @@ public class Exercise3TP6 implements Exercise3 {
         int z = 0;
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i<=j+1){
+                if(i==j || i==(j+1) || i==j-1){
                     double multiplication = calculator.multiplication(matrixA[i][j],vectorX[j]);
                     result[z] = calculator.sum(multiplication,result[z]);
-                }else if(i > j-1) {
-                    double multiplication = calculator.multiplication(matrixA[i][j], vectorX[j]);
-                    result[z] = calculator.sum(multiplication, result[z]);
                 }
             }
+            z++;
         }
         return result;
     }
@@ -111,10 +101,8 @@ public class Exercise3TP6 implements Exercise3 {
         double[][] result = new double[matrixA.length][matrixA.length];
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i == j || i == j+1 || i == j+1)
+                if(i==j || i==(j+1) || i==j-1)
                     result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
-                else
-                    result[i][j] = 0;
             }
         }
         return result;
@@ -124,10 +112,10 @@ public class Exercise3TP6 implements Exercise3 {
         double[][] result = new double[matrixA.length][matrixA.length];
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
-                if(i == j || i == j+1 || i == j+1)
-                    result[i][j] = calculator.multiplication(matrixA[i][j], matrixB[i][j]);
-                else
-                    result[i][j] = 0;
+                for (int k = 0; k < matrixA.length; k++) {
+                    if(i==j || i==(j+1) || i==j-1)
+                        result[i][j] += (matrixA[i][k] * matrixB[k][j]);
+                }
             }
         }
         return result;
