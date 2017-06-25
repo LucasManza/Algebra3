@@ -71,12 +71,11 @@ public class Guia6Test {
 //        printMatrixUpperTriangular(exercise4.summation(matrixA,matrixB,calculator));
 
         Exercise3 exercise3 = new Exercise3TP6();
-        double[][] testMatrix = {{1, 4, 0, 0}, {3, 4, 1, 0}, {0, 2, 3, 4}, {0, 0, 1, 3}};
+        double[][] testMatrixA = {{1, 0, 0}, {2, 3, 0}, {4, 5, 6}};
+        double[][] testMatrixB = {{1, 7, -2}, {0, -3, 4}, {0, 0, 2}};
         double[] testVectors = {1, 2, 3, 4};
 
-        printMatrix(exercise3.exerciseCI(testMatrix, testVectors, calculator));
-        printMatrix(exercise3.exerciseCII(testMatrix, testMatrix, calculator));
-        printMatrix(exercise3.exerciseCIII(testMatrix, testMatrix, calculator));
+        printMatrix(exercise3.exerciseE(testMatrixA, testMatrixB, calculator));
 
 
     }

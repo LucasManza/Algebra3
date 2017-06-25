@@ -193,13 +193,10 @@ public class Exercise3TP6 implements Exercise3 {
     public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator) {
         double[][] result = new double[matrixA.length][matrixA.length];
         for (int i = 0; i < matrixA.length; i++) {
-            for (int j = 0; j < matrixB.length; j++) {
-                if(i == j){
-                    result[i][j] = calculator.multiplication(matrixA[i][j], matrixB[i][j]);
-                }else if(i>j){
-                    result[i][j] = matrixB[i][j];
-                }else{
-                    result[i][j] = matrixA[i][j];
+            for (int j = 0; j < matrixA.length; j++) {
+                for (int k = 0; k < matrixA.length; k++) {
+                    if(matrixA[i][k] != 0 && matrixB[k][j] != 0)
+                        result[i][j] += (matrixA[i][k] * matrixB[k][j]);
                 }
             }
         }
