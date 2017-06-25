@@ -149,7 +149,7 @@ public class Exercises implements  TP4 {
         return exercise1(coefficients2,independentTerms2);
     }
     /**
-     * Description: Solve equations for Upper Hessemberg Matrix by Gauss's Method. With partial pivot resolution (it´s necessary.) TODO: rehacer
+     * Description: Solve equations for Upper Hessemberg Matrix by Gauss's Method. With partial pivot resolution (it´s necessary.)
      */
     @Override
     public double[] exercise6(double[][] coefficients, double[] independentTerms, Calculator calculator) {
