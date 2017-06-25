@@ -55,7 +55,18 @@ public class Guia6Test {
 //        printMatrix(matrix4);
 //        System.out.println("Exercise 2) B), matrix is upper diagonal: "+exercise2.exerciseB(matrix4,calculator));
 //        System.out.println("-----------------------------------------");
-//
+
+        Exercise3 exercise3 = new Exercise3TP6();
+        double[][] matrixBandaA = {{3,3,0,0},{1,2,2,0},{0,2,5,5},{0,0,3,4}};
+        double[] vectorA = {2,3,4,5};
+
+//        printMatrix(exercise3.exerciseDI(matrixBandaA,1,1,vectorA,calculator));
+
+        double[][] matrixBandaB = {{2,3,0,0},{3,4,6,0},{3,3,5,7},{0,4,4,8}};
+
+        printMatrix(exercise3.exerciseDII(matrixBandaA,1,1,matrixBandaB,2,1,calculator));
+
+
 //        Exercise4TP6 exercise4 = new Exercise4TP6();
 //        Node<Double> node1 = new NodeDouble(1,1, 1.0);
 //        Node<Double> node2 = new NodeDouble(1,2, 7.0);
@@ -69,13 +80,12 @@ public class Guia6Test {
 //        printMatrixUpperTriangular(matrixA);
 //        System.out.println("Matrix (A+B):");
 //        printMatrixUpperTriangular(exercise4.summation(matrixA,matrixB,calculator));
-
-        Exercise3 exercise3 = new Exercise3TP6();
-        double[][] testMatrixA = {{1, 0, 0}, {2, 3, 0}, {4, 5, 6}};
-        double[][] testMatrixB = {{1, 7, -2}, {0, -3, 4}, {0, 0, 2}};
-        double[] testVectors = {1, 2, 3, 4};
-
-        printMatrix(exercise3.exerciseE(testMatrixA, testMatrixB, calculator));
+//
+//        double[][] testMatrixA = {{1, 0, 0}, {2, 3, 0}, {4, 5, 6}};
+//        double[][] testMatrixB = {{1, 7, -2}, {0, -3, 4}, {0, 0, 2}};
+//        double[] testVectors = {1, 2, 3, 4};
+//
+//        printMatrix(exercise3.exerciseE(testMatrixA, testMatrixB, calculator));
 
 
     }

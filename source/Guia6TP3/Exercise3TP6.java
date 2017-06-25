@@ -123,36 +123,44 @@ public class Exercise3TP6 implements Exercise3 {
 
     public double[] exerciseDI(double[][] matrixA, int k1, int k2, double[] vectorX, Calculator calculator) {
         double[] result = new double[vectorX.length];
-        int j = 0;
-        int conditionJ = k1+j;
-        int z = 0;
+        for (int i = 0; i < matrixA.length; i++) {
 
-        for(int i=0; i<matrixA.length; i++){
-            for (; j<conditionJ ; j++) {
+            int stopJ = k2+i+1;
+            if (i== matrixA.length-1)
+                stopJ=matrixA.length;
+            int initJ = 0;
+            if ((i-k1)>=0)
+                initJ = i -k1;
 
+            for (int j = initJ; j < stopJ; j++) {
                 double multiplication = calculator.multiplication(matrixA[i][j],vectorX[j]);
-                result[z] = calculator.sum(multiplication,result[z]);
-
-                if(k1+j<=matrixA.length)
-                    conditionJ= k1+j;
-                if(j-k2-1 >=0)
-                    j -= k2+1;
+                result[i] = calculator.sum(multiplication,result[i]);
             }
-            z++;
         }
         return result;
     }
 
     public double[][] exerciseDII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator) {
         double[][] result = new double[matrixA.length][matrixA.length];
-        int countUp = 0;
-        int countDown = 0;
+        int columnLength = k2A;
+        int columnInitiate = k1A;
+        if (k2A<k2B)
+            columnLength = k2B;
+        if (k1A<k1B)
+            columnInitiate = k1B;
+
 
         for (int i = 0; i < matrixA.length; i++) {
-            for (int j = 0; j < matrixA.length; j++) {
-                if (i==j){
+
+            int stopJ = columnLength+i+1;
+            if (i== matrixA.length-1)
+                stopJ=matrixA.length;
+            int initJ = 0;
+            if ((i-columnInitiate)>=0)
+                initJ = i -columnInitiate;
+
+            for (int j = initJ; j < stopJ; j++) {
                     result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
-                }
             }
         }
         return result;
