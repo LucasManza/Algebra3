@@ -1,7 +1,7 @@
 package Guia6TP3;
 
 /**
- * Created by Lucas on 15/5/2017. TODO: rehacer todo al parecer
+ * Created by Lucas on 15/5/2017.
  */
 public class Exercise3TP6 implements Exercise3 {
     public double[] exerciseAI(double[][] matrixA, double[] vectorX, Calculator calculator) {
